@@ -1,5 +1,4 @@
 <?php
-
 namespace WarpsPro;
 
 use pocketmine\command\Command;
@@ -45,7 +44,7 @@ class WarpsPro extends PluginBase{ //implements CommandExecutor{
         switch($cmd->getName()){
             case 'warp':
                 if (!$sender->hasPermission("warpspro.command.warp")) {
-                    $sender->sendMessage("§c[WarpsPro] No permission.");
+                    $sender->sendMessage("§f[WarpsPro] No Permission");
                     return true;
                 }
                 if ($sender instanceof Player)
@@ -57,12 +56,12 @@ class WarpsPro extends PluginBase{ //implements CommandExecutor{
 
                         for($i = 0; $i < count($data) + 1; $i++)
                             if(isset($data[$i]))
-                                $warp_list .= '§a[§f' . $data[$i]["name"] . '§a]';
+                                $warp_list .= '§f[§f' . $data[$i]["name"] . '§f]';
                         if($warp_list != null){
                             $sender->sendMessage("§fWarps: " . $warp_list);
                             return true;
                         }else{
-                            $sender->sendMessage("§cThis server has no warps.");
+                            $sender->sendMessage("§fThis Server Has No Warps");
                             return true;
                         }
                     }else{
